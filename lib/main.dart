@@ -1,109 +1,307 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
+import 'aboutus.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
-        // counter didn't reset back to zero; the application is not restarted.
+    return MaterialApp(
+      title: 'BirdBrain',
+      theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'Numito',
       ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
+class HomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _HomePageState extends State<HomePage> {
+  int currentTab = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  Home home;
+  Settings settings;
+  More more;
+  List<Widget> pages;
+  Widget currentPage;
+
+  @override
+  void initState() {
+    home = Home();
+    settings = Settings();
+    more = More();
+
+    pages = [home, settings, more];
+
+    currentPage = home;
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return new Scaffold(
-      appBar: new AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: new Text(widget.title),
+    return Scaffold(
+      body: currentPage,
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentTab,
+          onTap: (int index) {
+            setState(() {
+              currentTab = index;
+              currentPage = pages[index];
+            });
+          },
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text("Home"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              title: Text("Account"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.more),
+              title: Text("More"),
+            ),
+          ]),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+
+  List<Container> listCourses = new List();
+
+  var course = [
+    {"name": "Mathematics", "image": "picture.png"},
+    {"name": "General Science", "image": "picture.png"},
+    {"name": "Health Science", "image": "picture.png"},
+    {"name": "Social Studies", "image": "picture.png"},
+
+    {"name": "Mathematics", "image": "picture.png"},
+    {"name": "Physics", "image": "picture.png"},
+    {"name": "Biology", "image": "picture.png"},
+    {"name": "Chemistry", "image": "picture.png"},
+    {"name": "Combined Science", "image": "picture.png"},
+    {"name": "History", "image": "picture.png"},
+    {"name": "Geography", "image": "picture.png"},
+    {"name": "Office Procedures", "image": "picture.png"},
+    {"name": "Economics", "image": "picture.png"},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    final grid = CustomScrollView(
+      primary: false,
+      slivers: <Widget>[
+        SliverPadding(
+          padding: EdgeInsets.all(16.0),
+          sliver: SliverGrid.count(
+            childAspectRatio: 2 / 3,
+            crossAxisCount: 2,
+            mainAxisSpacing: 40.0,
+            crossAxisSpacing: 40.0,
+//            children: books.map((book) => createTile(book)).toList(),
+          ),
+        )
+      ],
+    );
+
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
+      body: new GridView.count(
+        crossAxisCount: 2,
+        children: listCourses,
       ),
-      body: new Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: new Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug paint" (press "p" in the console where you ran
-          // "flutter run", or select "Toggle Debug Paint" from the Flutter tool
-          // window in IntelliJ) to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+    );
+
+
+
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Settings extends StatefulWidget {
+  @override
+  SettingsState createState() => new SettingsState();
+}
+
+class SettingsState extends State<Settings> {
+  @override
+  Widget build(BuildContext context) {
+    final emailButton = Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: Material(
+        borderRadius: BorderRadius.circular(30.0),
+        elevation: 5.0,
+        child: MaterialButton(
+          color: Colors.lightBlueAccent,
+          minWidth: 200.0,
+          height: 42.0,
+          onPressed: () {
+//                  Navigator.of(context).pushNamed(HomePage.tag);
+          },
+          child: Text("Update Email Address",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+
+    final passButton = Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: Material(
+        borderRadius: BorderRadius.circular(30.0),
+        elevation: 5.0,
+        child: MaterialButton(
+          color: Colors.lightBlueAccent,
+          minWidth: 200.0,
+          height: 42.0,
+          onPressed: () {
+//                  Navigator.of(context).pushNamed(HomePage.tag);
+          },
+          child: Text("Change Passowrd",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+        ),
+      ),
+    );
+
+    final logout = Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: Material(
+        borderRadius: BorderRadius.circular(30.0),
+        elevation: 5.0,
+        child: MaterialButton(
+          color: Colors.lightBlueAccent,
+          minWidth: 200.0,
+          height: 42.0,
+          onPressed: () {
+//                  Navigator.of(context).pushNamed(HomePage.tag);
+          },
+          child: Text("Log out",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+        ),
+      ),
+    );
+
+    final aboutUs = Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: Material(
+        borderRadius: BorderRadius.circular(30.0),
+        elevation: 5.0,
+        child: MaterialButton(
+          color: Colors.lightBlueAccent,
+          minWidth: 200.0,
+          height: 42.0,
+          onPressed: () {
+            Navigator.of(context).push(
+                new MaterialPageRoute(builder: (context) => new AboutUs()));
+          },
+          child: Text("About Us",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+        ),
+      ),
+    );
+
+    final contact = Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: Material(
+        borderRadius: BorderRadius.circular(30.0),
+        elevation: 5.0,
+        child: MaterialButton(
+          color: Colors.lightBlueAccent,
+          minWidth: 200.0,
+          height: 42.0,
+          onPressed: () {
+//                  Navigator.of(context).pushNamed(AboutUs.tag);
+          },
+          child: Text("Contact Us",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+        ),
+      ),
+    );
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: ListView(
+            shrinkWrap: true,
+            padding: EdgeInsets.only(left: 24.0, right: 24.0),
+            children: <Widget>[
+              SizedBox(height: 48.0),
+              emailButton,
+              SizedBox(height: 8.0),
+              passButton,
+              SizedBox(height: 24.0),
+              logout,
+              SizedBox(height: 8.0),
+              aboutUs,
+              SizedBox(height: 8.0),
+              contact,
+            ]),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class More extends StatefulWidget {
+  @override
+  MoreState createState() => MoreState();
+}
+
+class MoreState extends State<More> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 300.0,
+      color: Colors.yellow,
     );
   }
 }

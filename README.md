@@ -1,6 +1,6 @@
-# birdbrain
+# quiz
 
-quiz app
+quiz app.
 
 ## Getting Started
 
