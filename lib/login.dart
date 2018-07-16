@@ -66,6 +66,16 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {},
     );
 
+
+    final googleButton = new RaisedButton(
+      child: const Text('Connect with Google'),
+      color: Theme.of(context).accentColor,
+      elevation: 4.0,
+      splashColor: Colors.blue,
+      onPressed: () {
+        },
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -78,9 +88,11 @@ class _LoginPageState extends State<LoginPage> {
             email,
             SizedBox(height: 8.0),
             password,
-            SizedBox(height: 24.0),
+            SizedBox(height: 22.0),
             loginButton,
-            forgotLabel
+            forgotLabel,
+            SizedBox(height: 15.0),
+            googleButton
           ],
         ),
       ),

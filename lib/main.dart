@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BirdBrain',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
         fontFamily: 'Numito',
       ),
       home: LoginPage(),
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
               title: Text("Account"),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.more),
+              icon: Icon(Icons.attach_money),
               title: Text("More"),
             ),
           ]),
@@ -74,66 +74,108 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-
-
   List<Container> listCourses = new List();
-
-  var course = [
-    {"name": "Mathematics", "image": "picture.png"},
-    {"name": "General Science", "image": "picture.png"},
-    {"name": "Health Science", "image": "picture.png"},
-    {"name": "Social Studies", "image": "picture.png"},
-
-    {"name": "Mathematics", "image": "picture.png"},
-    {"name": "Physics", "image": "picture.png"},
-    {"name": "Biology", "image": "picture.png"},
-    {"name": "Chemistry", "image": "picture.png"},
-    {"name": "Combined Science", "image": "picture.png"},
-    {"name": "History", "image": "picture.png"},
-    {"name": "Geography", "image": "picture.png"},
-    {"name": "Office Procedures", "image": "picture.png"},
-    {"name": "Economics", "image": "picture.png"},
-  ];
 
   @override
   Widget build(BuildContext context) {
 
 
-    final grid = CustomScrollView(
-      primary: false,
-      slivers: <Widget>[
-        SliverPadding(
-          padding: EdgeInsets.all(16.0),
-          sliver: SliverGrid.count(
-            childAspectRatio: 2 / 3,
+    final bjc = new Card(
+        child: GridView.count(
             crossAxisCount: 2,
-            mainAxisSpacing: 40.0,
-            crossAxisSpacing: 40.0,
-//            children: books.map((book) => createTile(book)).toList(),
-          ),
-        )
-      ],
+
+            children: List.generate(100,(index) {
+              return Center(
+                child: Text(
+                  'Item $index',
+                  style: Theme.of(context).textTheme.headline,
+                ),
+              );
+            }),
+        ),
     );
 
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: new GridView.count(
+    final bgcse = new Card(
+      child: GridView.count(
         crossAxisCount: 2,
-        children: listCourses,
+
+        children: List.generate(100,(index) {
+          return Center(
+            child: Text(
+              'Item $index',
+              style: Theme.of(context).textTheme.headline,
+            ),
+          );
+        }),
       ),
     );
 
 
 
 
+    final title = 'BirdBrain';
+
+    return MaterialApp(
+     title: title,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title,
+          style: new TextStyle(
+            color: const Color(0xFF444444),
+            fontSize: 25.0,
+            fontWeight: FontWeight.w900,
+          ),
+          ),
+          titleSpacing: 0.00,
+          centerTitle: true,
+          elevation: 5.0,
+        ),
+        body: GridView.count(
+        crossAxisCount: 2,
+        padding: const EdgeInsets.all(5.0),
+        childAspectRatio: 0.80,
+        mainAxisSpacing: 3.0,
+        crossAxisSpacing: 3.0,
+        shrinkWrap: true,
+        children: <Widget> [
+          bjc ,
+          bgcse
+          ]
+      ),
+      ),
+    );
   }
 }
+
+
+
+
+
+
+
 
 
 
@@ -287,10 +329,6 @@ class SettingsState extends State<Settings> {
 
 
 
-
-
-
-
 class More extends StatefulWidget {
   @override
   MoreState createState() => MoreState();
@@ -300,7 +338,7 @@ class MoreState extends State<More> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300.0,
+      height: 600.0,
       color: Colors.yellow,
     );
   }
