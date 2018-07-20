@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/courses.dart';
 import 'login.dart';
 import 'aboutus.dart';
 
@@ -101,72 +102,68 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
-
-    final bjc = new Card(
-        child: GridView.count(
-            crossAxisCount: 2,
-
-            children: List.generate(100,(index) {
-              return Center(
-                child: Text(
-                  'Item $index',
-                  style: Theme.of(context).textTheme.headline,
-                ),
-              );
-            }),
-        ),
-    );
-
-    final bgcse = new Card(
-      child: GridView.count(
-        crossAxisCount: 2,
-
-        children: List.generate(100,(index) {
-          return Center(
-            child: Text(
-              'Item $index',
-              style: Theme.of(context).textTheme.headline,
-            ),
-          );
-        }),
-      ),
-    );
-
-
-
-
-    final title = 'BirdBrain';
-
-    return MaterialApp(
-     title: title,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(title,
-          style: new TextStyle(
-            color: const Color(0xFF444444),
-            fontSize: 25.0,
-            fontWeight: FontWeight.w900,
-          ),
-          ),
-          titleSpacing: 0.00,
-          centerTitle: true,
-          elevation: 5.0,
-        ),
-        body: GridView.count(
-        crossAxisCount: 2,
-        padding: const EdgeInsets.all(5.0),
-        childAspectRatio: 0.80,
-        mainAxisSpacing: 3.0,
-        crossAxisSpacing: 3.0,
-        shrinkWrap: true,
+    return new Scaffold(
+      body: new Column(
         children: <Widget> [
-          bjc ,
-          bgcse
-          ]
-      ),
+          new GradientAppBar(),
+          new HomePageBody(),
+        ],
       ),
     );
+  }
+}
+
+
+
+
+
+class GradientAppBar extends StatelessWidget {
+
+  final title = 'BirdBrain';
+  final double barHeight = 80.0;
+
+  @override
+  Widget build(BuildContext context) {
+    final double statusBarHeight = MediaQuery
+        .of(context)
+        .padding
+        .top;
+
+    return new Container (
+      padding: new EdgeInsets.only(top: statusBarHeight),
+      height: statusBarHeight + barHeight,
+      child: new Center (
+        child: new Text (
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+//            fontFamily:
+            fontWeight: FontWeight.w600,
+            fontSize: 36.0
+          )
+        ),
+      ),
+        decoration: new BoxDecoration(
+            gradient: new LinearGradient(
+                colors: [
+                  const Color(0xFF3366FF),
+                  const Color(0xFF00CCFF),
+                ],
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: [0.0, 0.5],
+                tileMode: TileMode.clamp
+        ),
+     ),
+    );
+  }
+}
+
+class HomePageBody extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return new Subject();
   }
 }
 
