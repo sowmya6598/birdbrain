@@ -15,7 +15,7 @@ class GradientAppBar extends StatelessWidget {
     return new Container (
       padding: new EdgeInsets.only(top: statusBarHeight),
       height: statusBarHeight + barHeight,
-      child: new Center (
+      child:  new Center (
         child: new Text (
             title,
             style: const TextStyle(
@@ -26,6 +26,8 @@ class GradientAppBar extends StatelessWidget {
             )
         ),
       ),
+
+
       decoration: new BoxDecoration(
         gradient: new LinearGradient(
             colors: [
@@ -38,6 +40,8 @@ class GradientAppBar extends StatelessWidget {
             tileMode: TileMode.clamp
         ),
       ),
+
+
     );
   }
 }
