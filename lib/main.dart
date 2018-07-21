@@ -76,51 +76,43 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
+
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Column(
-        children: <Widget> [
-          new GradientAppBar(),
-          new HomePageBody()
-        ],
+        children: <Widget>[new GradientAppBar(), new HomePageBody()],
       ),
     );
   }
 }
 
-
-
 class Settings extends StatefulWidget {
   @override
-  SettingsState createState() => new SettingsState();
+ _SettingsState createState() => new _SettingsState();
 }
-class SettingsState extends State<Settings> {
 
+class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Column(
-        children: <Widget> [
-          new SettingsBody()
-        ],
+        children: <Widget>[new SettingsPage()],
       ),
     );
   }
 }
-
-
 
 class More extends StatefulWidget {
   @override
   MoreState createState() => MoreState();
 }
+
 class MoreState extends State<More> {
   @override
   Widget build(BuildContext context) {

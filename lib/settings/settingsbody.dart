@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/settings/aboutus.dart';
 
-class SettingsBody extends StatelessWidget {
+//class SettingsBody extends StatelessWidget {
 
+class SettingsPage extends StatefulWidget {
+  @override
+  _SettingsPageState createState() => new _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-
-    final emailButton = Padding(
+    final emailButton = new FlatButton(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
@@ -20,12 +25,12 @@ class SettingsBody extends StatelessWidget {
           },
           child: Text("Update Email Address",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
         ),
       ),
     );
 
-    final passButton = Padding(
+    final passButton = new FlatButton(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
@@ -39,12 +44,12 @@ class SettingsBody extends StatelessWidget {
           },
           child: Text("Change Passowrd",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
         ),
       ),
     );
 
-    final logout = Padding(
+    final logout = new FlatButton(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
@@ -58,12 +63,12 @@ class SettingsBody extends StatelessWidget {
           },
           child: Text("Log out",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
         ),
       ),
     );
 
-    final aboutUs = Padding(
+    final aboutUs = new FlatButton(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
@@ -78,12 +83,12 @@ class SettingsBody extends StatelessWidget {
           },
           child: Text("About Us",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
         ),
       ),
     );
 
-    final contact = Padding(
+    final contact = new FlatButton(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
@@ -97,30 +102,34 @@ class SettingsBody extends StatelessWidget {
           },
           child: Text("Contact Us",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
         ),
       ),
     );
 
-    return new Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: ListView(
-            shrinkWrap: true,
-            padding: EdgeInsets.only(left: 24.0, right: 24.0),
-            children: <Widget>[
-              SizedBox(height: 48.0),
-              emailButton,
-              SizedBox(height: 8.0),
-              passButton,
-              SizedBox(height: 24.0),
-              logout,
-              SizedBox(height: 8.0),
-              aboutUs,
-              SizedBox(height: 8.0),
-              contact,
-            ]),
-      ),
+    return new CustomScrollView(
+      shrinkWrap: true,
+      slivers: <Widget>[
+        new SliverPadding(
+          padding: const EdgeInsets.all(20.0),
+          sliver: new SliverList(
+            delegate: new SliverChildListDelegate(
+              <Widget>[
+                SizedBox(height: 15.0),
+                emailButton,
+                SizedBox(height: 15.0),
+                passButton,
+                SizedBox(height: 15.0),
+                logout,
+                SizedBox(height: 15.0),
+                aboutUs,
+                SizedBox(height: 15.0),
+                contact,
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

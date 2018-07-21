@@ -16,7 +16,7 @@ class HomePageBody extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 24.0),
               sliver: new SliverList(
                 delegate: new SliverChildBuilderDelegate(
-                      (context, index) => new CourseBox(courses[index]),
+                  (context, index) => new CourseBox(courses[index]),
                   childCount: courses.length,
                 ),
               ),
@@ -27,4 +27,3 @@ class HomePageBody extends StatelessWidget {
     );
   }
 }
-
