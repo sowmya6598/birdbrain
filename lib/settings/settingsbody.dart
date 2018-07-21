@@ -6,7 +6,6 @@ class SettingsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
     final emailButton = Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
@@ -124,5 +123,4 @@ class SettingsBody extends StatelessWidget {
       ),
     );
   }
-
 }
