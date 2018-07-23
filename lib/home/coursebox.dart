@@ -47,18 +47,18 @@ class CourseBox extends StatelessWidget {
       width: 200.0,
       decoration: new BoxDecoration(
         gradient: new LinearGradient(
-          colors: [Colors.red, Colors.cyan],
+          colors: [Color(0xFFF1BFB9), Color(0xFFE08284)],
         ),
-        color: new Color(0xFF999999),
+//        color: new Color(0xFFFFFFFF),
         shape: BoxShape.rectangle,
         borderRadius: new BorderRadius.circular(10.0),
-        boxShadow: <BoxShadow>[
-          new BoxShadow(
-            color: Colors.black12,
-            blurRadius: 10.0,
-            offset: new Offset(0.0, 10.0),
-          ),
-        ],
+//        boxShadow: <BoxShadow>[
+//          new BoxShadow(
+//            color: Colors.black12,
+//            blurRadius: 10.0,
+//            offset: new Offset(0.0, 10.0),
+//          ),
+//        ],
       ),
     );
 

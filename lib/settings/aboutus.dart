@@ -19,7 +19,7 @@ class AboutUs extends StatelessWidget {
       padding: EdgeInsets.all(8.0),
       child: Text(
         'About Us',
-        style: TextStyle(fontSize: 28.0, color: Colors.white),
+        style: TextStyle(fontSize: 40.0, color: Colors.white),
       ),
     );
 
@@ -31,7 +31,7 @@ class AboutUs extends StatelessWidget {
             ' Ashton Sweeting'
             ' Valtio Cooper'
             ' more blah bla blah',
-        style: TextStyle(fontSize: 16.0, color: Colors.white),
+        style: TextStyle(fontSize: 25.0, color: Colors.white),
       ),
     );
 
@@ -39,10 +39,11 @@ class AboutUs extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(28.0),
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Colors.blue,
-          Colors.lightBlueAccent,
-        ]),
+        gradient: LinearGradient(
+          colors: [
+            const Color(0xFFF1BFB9),
+            const Color(0xFFE08284),
+          ]),
       ),
       child: Column(
         children: <Widget>[alucard, welcome, lorem],

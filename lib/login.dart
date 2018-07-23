@@ -47,15 +47,15 @@ class _LoginPageState extends State<LoginPage> {
       } ,
       padding: EdgeInsets.symmetric(vertical: 16.0),
       elevation: 4.0,
-      color: const Color.fromRGBO(247, 64, 106, 1.0),
+      color: const Color.fromRGBO(224, 130, 132, 1.0),
 //      borderRadius: new BorderRadius.all(const Radius.circular(30.0)),
       child: new Text(
         'Sign In',
         style: new TextStyle(
           color: Colors.white,
           fontSize: 20.0,
-          fontWeight: FontWeight.w300,
-          letterSpacing: 0.3, ),
+          fontWeight: FontWeight.w600,
+          letterSpacing: 0.5, ),
     ),);
 
     final forgotLabel = FlatButton(
@@ -89,8 +89,8 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: 8.0),
             password,
             SizedBox(height: 22.0),
-            loginButton,
             forgotLabel,
+            loginButton,
             SizedBox(height: 15.0),
             googleButton
           ],

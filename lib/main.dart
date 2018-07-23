@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quiz/home/appbar.dart';
 import 'package:quiz/home/homepagebody.dart';
 import 'package:quiz/settings/aboutus.dart';
@@ -10,10 +11,16 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return MaterialApp(
       title: 'BirdBrain',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primaryColor: Color(0xFFE08284),
         fontFamily: 'Numito',
       ),
       home: LoginPage(),
@@ -126,9 +133,9 @@ class _SettingsState extends State<Settings> {
         padding: EdgeInsets.symmetric(vertical: 16.0),
         child: Material(
           borderRadius: BorderRadius.circular(30.0),
-          elevation: 5.0,
+          elevation: 0.5,
           child: MaterialButton(
-            color: Colors.lightBlueAccent,
+            color: Colors.white,
             minWidth: 200.0,
             height: 42.0,
             onPressed: () {
@@ -136,7 +143,7 @@ class _SettingsState extends State<Settings> {
             },
             child: Text("Update Email Address",
                 style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.w400)),
+                    color: Color(0xFFE08284), fontWeight: FontWeight.w400)),
           ),
         ),
       ),
@@ -146,9 +153,9 @@ class _SettingsState extends State<Settings> {
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
-        elevation: 5.0,
+        elevation: 0.5,
         child: MaterialButton(
-          color: Colors.lightBlueAccent,
+          color: Colors.white,
           minWidth: 200.0,
           height: 42.0,
 //          onPressed: () {
@@ -156,7 +163,7 @@ class _SettingsState extends State<Settings> {
 //          },
           child: Text("Change Passowrd",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+              TextStyle(color: Color(0xFFE08284), fontWeight: FontWeight.w400)),
         ),
       ),
     );
@@ -165,9 +172,9 @@ class _SettingsState extends State<Settings> {
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
-        elevation: 5.0,
+        elevation: 0.5,
         child: MaterialButton(
-          color: Colors.lightBlueAccent,
+          color: Colors.white,
           minWidth: 200.0,
           height: 42.0,
 //          onPressed: () {
@@ -175,7 +182,7 @@ class _SettingsState extends State<Settings> {
 //          },
           child: Text("Log out",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+              TextStyle(color: Color(0xFFE08284), fontWeight: FontWeight.w400)),
         ),
       ),
     );
@@ -184,9 +191,9 @@ class _SettingsState extends State<Settings> {
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
-        elevation: 5.0,
+        elevation: 0.5,
         child: MaterialButton(
-          color: Colors.lightBlueAccent,
+          color: Colors.white,
           minWidth: 200.0,
           height: 42.0,
           onPressed: () {
@@ -195,7 +202,7 @@ class _SettingsState extends State<Settings> {
           },
           child: Text("About Us",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+              TextStyle(color: Color(0xFFE08284), fontWeight: FontWeight.w400)),
         ),
       ),
     );
@@ -204,9 +211,9 @@ class _SettingsState extends State<Settings> {
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
-        elevation: 5.0,
+        elevation: 0.5,
         child: MaterialButton(
-          color: Colors.lightBlueAccent,
+          color: Colors.white,
           minWidth: 200.0,
           height: 42.0,
 //          onPressed: () {
@@ -214,7 +221,7 @@ class _SettingsState extends State<Settings> {
 //          },
           child: Text("Contact Us",
               style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+              TextStyle(color: Color(0xFFE08284), fontWeight: FontWeight.w400)),
         ),
       ),
     );
@@ -260,7 +267,7 @@ class MoreState extends State<More> {
   Widget build(BuildContext context) {
     return Container(
       height: 600.0,
-      color: Colors.yellow,
+      color: Colors.white,
     );
   }
 }

@@ -19,7 +19,7 @@ class GradientAppBar extends StatelessWidget {
         child: new Text (
             title,
             style: const TextStyle(
-                color: Colors.white,
+                color: Color(0xFFFFFFFF),
 //            fontFamily:
                 fontWeight: FontWeight.w600,
                 fontSize: 36.0
@@ -31,12 +31,12 @@ class GradientAppBar extends StatelessWidget {
       decoration: new BoxDecoration(
         gradient: new LinearGradient(
             colors: [
-              const Color(0xFF3366FF),
-              const Color(0xFF00CCFF),
+              const Color(0xFFF1BFB9),
+              const Color(0xFFE08284),
             ],
             begin: const FractionalOffset(0.0, 0.0),
             end: const FractionalOffset(1.0, 0.0),
-            stops: [0.0, 0.5],
+            stops: [0.0, 0.6],
             tileMode: TileMode.clamp
         ),
       ),
