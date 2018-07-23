@@ -27,10 +27,7 @@ class AboutUs extends StatelessWidget {
       padding: EdgeInsets.all(8.0),
       child: Text(
         'Bird brain was created by a group beautiful individauals'
-            ' Sowmya Thottambeti'
-            ' Ashton Sweeting'
-            ' Valtio Cooper'
-            ' more blah bla blah',
+            ' Sowmya Thottambeti',
         style: TextStyle(fontSize: 25.0, color: Colors.white),
       ),
     );
@@ -39,11 +36,10 @@ class AboutUs extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(28.0),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            const Color(0xFFF1BFB9),
-            const Color(0xFFE08284),
-          ]),
+        gradient: LinearGradient(colors: [
+          const Color(0xFFF1BFB9),
+          const Color(0xFFE08284),
+        ]),
       ),
       child: Column(
         children: <Widget>[alucard, welcome, lorem],

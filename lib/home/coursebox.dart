@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/home/courses.dart';
-import 'package:quiz/home/dialog.dart';
-
+import 'package:quiz/home/pickmode.dart';
 
 class CourseBox extends StatelessWidget {
-
   final Course course;
   final bool horizontal;
 
@@ -12,11 +10,8 @@ class CourseBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final courseThumbnail = new Container(
-      margin: new EdgeInsets.symmetric(
-          vertical: 16.0
-      ),
+      margin: new EdgeInsets.symmetric(vertical: 16.0),
       alignment: FractionalOffset.topLeft,
       child: new Hero(
         tag: "course-hero-${course.id}",
@@ -35,7 +30,13 @@ class CourseBox extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           new Container(height: 4.0),
-          new Text(course.name,
+          new Text(
+            course.name,
+            style: new TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 15.0 ,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
@@ -65,12 +66,13 @@ class CourseBox extends StatelessWidget {
     return new GestureDetector(
         onTap: horizontal
             ? () => Navigator.of(context).push(
-          new PageRouteBuilder(
-            pageBuilder: (_, __, ___) => new PopUp(),
-            transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-            new FadeTransition(opacity: animation, child: child),
-          ) ,
-        )
+                  new PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => new PopUp(),
+                    transitionsBuilder: (context, animation, secondaryAnimation,
+                            child) =>
+                        new FadeTransition(opacity: animation, child: child),
+                  ),
+                )
             : null,
         child: new Container(
           margin: const EdgeInsets.symmetric(
@@ -83,7 +85,6 @@ class CourseBox extends StatelessWidget {
               courseThumbnail,
             ],
           ),
-        )
-    );
+        ));
   }
 }
