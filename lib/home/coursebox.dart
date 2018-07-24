@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/home/courses.dart';
-import 'package:quiz/home/pickmode.dart';
+import 'package:quiz/home/dialog.dart';
 
 class CourseBox extends StatelessWidget {
   final Course course;
@@ -85,6 +85,7 @@ class CourseBox extends StatelessWidget {
               courseThumbnail,
             ],
           ),
-        ));
+        ),
+    );
   }
 }

@@ -16,7 +16,7 @@ class AboutUs extends StatelessWidget {
     );
 
     final welcome = Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.only(bottom: 20.0),
       child: Text(
         'About Us',
         style: TextStyle(fontSize: 40.0, color: Colors.white),
@@ -24,9 +24,8 @@ class AboutUs extends StatelessWidget {
     );
 
     final lorem = Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(20.0),
       child: Text(
-        'Bird brain was created by a group beautiful individauals'
             ' Sowmya Thottambeti',
         style: TextStyle(fontSize: 25.0, color: Colors.white),
       ),
@@ -34,7 +33,7 @@ class AboutUs extends StatelessWidget {
 
     final body = Container(
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(28.0),
+      padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
           const Color(0xFFF1BFB9),
