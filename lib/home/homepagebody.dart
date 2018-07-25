@@ -5,6 +5,8 @@ import 'package:quiz/home/courses.dart';
 class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+
     return new Expanded(
       child: new Container(
         color: new Color(0xFFFFFFFF),
