@@ -134,8 +134,8 @@ class MoreState extends State<More> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600.0,
-      color: Colors.white,
+      height: 300.0,
+      color: Colors.green,
     );
   }
 }

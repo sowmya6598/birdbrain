@@ -7,18 +7,47 @@ class SettingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     Widget header = new Container(
-      child: Container(
-        color: Colors.green,
-        margin: new EdgeInsets.only(bottom: 20.0),
+      decoration: new BoxDecoration(
+        borderRadius: new BorderRadius.only(
+            bottomLeft: const Radius.elliptical(150.0, 35.0),
+            bottomRight: const Radius.elliptical(150.0, 35.0)),
+        gradient: new LinearGradient(
+            colors: [
+              const Color(0xFFF1BFB9),
+              const Color(0xFFE08284),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomRight,
+            stops: [0.0, 0.6],
+            tileMode: TileMode.clamp),
+      ),
+      height: 250.0,
+      margin: new EdgeInsets.only(bottom: 20.0),
+      child: new Column(
+        children: <Widget>[
+          new Image(
+              alignment: FractionalOffset.centerLeft,
+              image: new AssetImage('assets/picture.png'),
+              height: 40.0,
+              width: 50.0),
+          new Text("Sowmya Thottambeti",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 25.0)),
+          new Text("Points : 2,400",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 17.0)),
+        ],
       ),
     );
 
     Widget emailButton = new FlatButton(
       padding:
-          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 10.0),
+          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
       child: Material(
         borderRadius: BorderRadius.circular(17.0),
         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -72,7 +101,7 @@ class SettingsBody extends StatelessWidget {
 
     Widget passButton = new FlatButton(
       padding:
-          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 10.0),
+          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
       child: Material(
         borderRadius: BorderRadius.circular(17.0),
         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -126,7 +155,7 @@ class SettingsBody extends StatelessWidget {
 
     Widget logout = new FlatButton(
       padding:
-          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 10.0),
+          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
       child: Material(
         borderRadius: BorderRadius.circular(17.0),
         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -149,7 +178,7 @@ class SettingsBody extends StatelessWidget {
 
     Widget aboutUs = new FlatButton(
       padding:
-          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 10.0),
+          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
       child: Material(
         borderRadius: BorderRadius.circular(17.0),
         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -185,17 +214,19 @@ class SettingsBody extends StatelessWidget {
                   new Container(
                     child: SizedBox(height: 5.0),
                   ),
-                  new Text("who are we",
+                  new Text("BTS Birdbrain",
                       style: TextStyle(
                           color: Color(0xFFF1BFB9),
                           fontWeight: FontWeight.w400,
                           fontSize: 13.0)),
                 ],
               ),
-              new IconButton(
-                  icon: new Icon(Icons.navigate_next),
-                  onPressed: null,
-                  color: Color(0xFFE08284)),
+              new Expanded(
+                child: new IconButton(
+                    icon: new Icon(Icons.navigate_next),
+                    onPressed: null,
+                    color: Color(0xFFE08284)),
+              ),
             ],
           ),
         ),
@@ -204,7 +235,7 @@ class SettingsBody extends StatelessWidget {
 
     Widget contactUs = new FlatButton(
       padding:
-          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 10.0),
+          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
       child: Material(
         borderRadius: BorderRadius.circular(17.0),
         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -262,30 +293,40 @@ class SettingsBody extends StatelessWidget {
       child: new Center(
         child: new Container(
           alignment: Alignment.center,
-          padding: const EdgeInsets.all(10.0),
           child: new ListView(
             scrollDirection: Axis.vertical,
             children: <Widget>[
               header,
-              new Text(
-                "ACCOUNT",
-                style: TextStyle(
-                    letterSpacing: 1.0,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15.0),
+              SizedBox(height: 20.0),
+              new Row(
+                children: <Widget>[
+                  new SizedBox(width: 30.0),
+                  new Text(
+                    "ACCOUNT",
+                    style: TextStyle(
+                        letterSpacing: 1.0,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15.0),
+                  ),
+                ],
               ),
               emailButton,
               passButton,
               logout,
               SizedBox(height: 25.0),
-              new Text(
-                "OTHER",
-                style: TextStyle(
-                    letterSpacing: 1.0,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15.0),
+              new Row(
+                children: <Widget>[
+                  new SizedBox(width: 30.0),
+                  new Text(
+                    "OTHER",
+                    style: TextStyle(
+                        letterSpacing: 1.0,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15.0),
+                  ),
+                ],
               ),
               aboutUs,
               contactUs
