@@ -10,40 +10,20 @@ class BJCCourseBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final courseThumbnail = new Container(
-      margin: new EdgeInsets.symmetric(vertical: 16.0),
-      alignment: FractionalOffset.topLeft,
-      child: new Hero(
-        tag: "course-hero-${bjccourse.id}",
-        child: new Image(
-          image: new AssetImage(bjccourse.image),
-          height: 60.0,
-          width: 60.0,
-        ),
-      ),
-    );
-
-    final courseCardContent = new Container(
-      margin: new EdgeInsets.fromLTRB(76.0, 16.0, 16.0, 16.0),
-      constraints: new BoxConstraints.expand(),
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          new Container(height: 4.0),
-          new Text(
-            bjccourse.name,
-            style: new TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 15.0 ,
-              color: Color(0xFFE08284),
-            ),
-          ),
-        ],
-      ),
-    );
 
     final courseCard = new Container(
-      child: courseCardContent,
+      child: new Container(
+        margin: new EdgeInsets.symmetric(vertical: 16.0),
+        alignment: FractionalOffset.center,
+        child: new Hero(
+          tag: "course-hero-${bjccourse.id}",
+          child: new Image(
+            image: new AssetImage(bjccourse.image),
+            height: 80.0,
+            width: 80.0,
+          ),
+        ),
+      ),
       height: 100.0,
       width: 200.0,
       decoration: new BoxDecoration(
@@ -60,13 +40,30 @@ class BJCCourseBox extends StatelessWidget {
       ),
     );
 
+    final courseTitle = new Column(
+      children: <Widget>[
+        courseCard,
+        new Container(
+          height: 10.0,
+        ),
+        new Text(
+          bjccourse.name,
+          style: new TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 15.0,
+            color: Color(0xFFE08284),
+          ),
+        ),
+      ],
+    );
+
     return new GestureDetector(
       onTap: horizontal
           ? () => Navigator.of(context).push(
         new PageRouteBuilder(
           pageBuilder: (_, __, ___) => new PopUp(),
-          transitionsBuilder: (context, animation, secondaryAnimation,
-              child) =>
+          transitionsBuilder:
+              (context, animation, secondaryAnimation, child) =>
           new FadeTransition(opacity: animation, child: child),
         ),
       )
@@ -79,7 +76,7 @@ class BJCCourseBox extends StatelessWidget {
         child: new Stack(
           children: <Widget>[
             courseCard,
-            courseThumbnail,
+            courseTitle,
           ],
         ),
       ),
