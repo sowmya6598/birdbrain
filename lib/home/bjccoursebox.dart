@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/home/courses.dart';
+import 'package:quiz/home/bjccourses.dart';
 import 'package:quiz/home/dialog.dart';
 
-class CourseBox extends StatelessWidget {
-  final Course course;
+class BJCCourseBox extends StatelessWidget {
+  final BJCCourse bjccourse;
   final bool horizontal;
 
-  CourseBox(this.course, {this.horizontal = true});
+  BJCCourseBox(this.bjccourse, {this.horizontal = true});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,9 @@ class CourseBox extends StatelessWidget {
       margin: new EdgeInsets.symmetric(vertical: 16.0),
       alignment: FractionalOffset.topLeft,
       child: new Hero(
-        tag: "course-hero-${course.id}",
+        tag: "course-hero-${bjccourse.id}",
         child: new Image(
-          image: new AssetImage(course.image),
+          image: new AssetImage(bjccourse.image),
           height: 60.0,
           width: 60.0,
         ),
@@ -31,11 +31,11 @@ class CourseBox extends StatelessWidget {
         children: <Widget>[
           new Container(height: 4.0),
           new Text(
-            course.name,
+            bjccourse.name,
             style: new TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 15.0 ,
-              color: Colors.white,
+              color: Color(0xFFE08284),
             ),
           ),
         ],
@@ -47,10 +47,7 @@ class CourseBox extends StatelessWidget {
       height: 100.0,
       width: 200.0,
       decoration: new BoxDecoration(
-        gradient: new LinearGradient(
-          colors: [Color(0xFFF1BFB9), Color(0xFFE08284)],
-        ),
-//        color: new Color(0xFFFFFFFF),
+        color: new Color(0xFFFFFFFF),
         shape: BoxShape.rectangle,
         borderRadius: new BorderRadius.circular(10.0),
 //        boxShadow: <BoxShadow>[
@@ -64,28 +61,28 @@ class CourseBox extends StatelessWidget {
     );
 
     return new GestureDetector(
-        onTap: horizontal
-            ? () => Navigator.of(context).push(
-                  new PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => new PopUp(),
-                    transitionsBuilder: (context, animation, secondaryAnimation,
-                            child) =>
-                        new FadeTransition(opacity: animation, child: child),
-                  ),
-                )
-            : null,
-        child: new Container(
-          margin: const EdgeInsets.symmetric(
-            vertical: 16.0,
-            horizontal: 24.0,
-          ),
-          child: new Stack(
-            children: <Widget>[
-              courseCard,
-              courseThumbnail,
-            ],
-          ),
+      onTap: horizontal
+          ? () => Navigator.of(context).push(
+        new PageRouteBuilder(
+          pageBuilder: (_, __, ___) => new PopUp(),
+          transitionsBuilder: (context, animation, secondaryAnimation,
+              child) =>
+          new FadeTransition(opacity: animation, child: child),
         ),
+      )
+          : null,
+      child: new Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 16.0,
+          horizontal: 24.0,
+        ),
+        child: new Stack(
+          children: <Widget>[
+            courseCard,
+            courseThumbnail,
+          ],
+        ),
+      ),
     );
   }
 }

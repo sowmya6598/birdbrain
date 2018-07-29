@@ -7,27 +7,6 @@ class Course {
 }
 
 List<Course> courses = [
-
-  const Course(
-      id: "bjc_math",
-      name: "Mathematics",
-      image: "assets/picture.png"
-  ),
-  const Course(
-      id: "bjc_healthscience",
-      name: "Health Science",
-      image: "assets/picture.png"
-  ),
-  const Course(
-      id: "bjc_generalscience",
-      name: "General Science",
-      image: "assets/picture.png"
-  ),
-  const Course(
-      id: "bjc_socialstudies",
-      name: "Social Studies",
-      image: "assets/picture.png"
-  ),
   const Course(
       id: "bgcse_math",
       name: "Mathematics",

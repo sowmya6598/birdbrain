@@ -5,9 +5,16 @@ class SettingsBody extends StatelessWidget {
   final bool horizontal;
   SettingsBody({this.horizontal = true});
 
+
+
+  final double barHeight = 80.0;
+
   @override
   Widget build(BuildContext context) {
+
     Widget header = new Container(
+
+      padding: EdgeInsets.only(top: 15.0, bottom: 30.0),
       decoration: new BoxDecoration(
         borderRadius: new BorderRadius.only(
             bottomLeft: const Radius.elliptical(150.0, 35.0),
@@ -25,21 +32,24 @@ class SettingsBody extends StatelessWidget {
       height: 250.0,
       margin: new EdgeInsets.only(bottom: 20.0),
       child: new Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          new Image(
-              alignment: FractionalOffset.centerLeft,
-              image: new AssetImage('assets/picture.png'),
-              height: 40.0,
-              width: 50.0),
+          new CircleAvatar(
+            radius: 60.0,
+            backgroundColor: Colors.white,
+            backgroundImage: AssetImage('assets/face.jpg'),
+          ),
+          new SizedBox(height: 20.0),
           new Text("Sowmya Thottambeti",
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
-                  fontSize: 25.0)),
+                  fontSize: 23.0)),
+          new SizedBox(height: 10.0),
           new Text("Points : 2,400",
               style: TextStyle(
                   color: Colors.white,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w300,
                   fontSize: 17.0)),
         ],
       ),
@@ -288,6 +298,7 @@ class SettingsBody extends StatelessWidget {
         ),
       ),
     );
+
 
     return new Expanded(
       child: new Center(

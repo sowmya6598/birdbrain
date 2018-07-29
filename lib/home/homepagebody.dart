@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/home/bjccourses.dart';
+import 'package:quiz/home/bjccoursebox.dart';
 import 'package:quiz/home/coursebox.dart';
 import 'package:quiz/home/courses.dart';
 
 class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-
     return new Expanded(
       child: new Container(
-        color: new Color(0xFFFFFFFF),
+//        color: new Color(0xFFFFFFFF),
         child: new CustomScrollView(
           scrollDirection: Axis.vertical,
           shrinkWrap: false,
           slivers: <Widget>[
-            new SliverPadding(
-              padding: const EdgeInsets.symmetric(vertical: 24.0),
-              sliver: new SliverList(
-                delegate: new SliverChildBuilderDelegate(
-                  (context, index) => new CourseBox(courses[index]),
-                  childCount: courses.length,
-                ),
+            new SliverGrid(
+              gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200.0,
+              ),
+              delegate: new SliverChildBuilderDelegate(
+                (context, int index) => new CourseBox(courses[index]),
+                childCount: courses.length,
+              ),
+            ),
+            new SliverGrid(
+              gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200.0,
+              ),
+              delegate: new SliverChildBuilderDelegate(
+                (context, int index) => new BJCCourseBox(bjccourses[index]),
+                childCount: bjccourses.length,
               ),
             ),
           ],
