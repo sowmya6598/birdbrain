@@ -15,7 +15,7 @@ class HomePageBody extends StatelessWidget {
           slivers: <Widget>[
             new SliverGrid(
               gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200.0,
+                maxCrossAxisExtent: 300.0,
               ),
               delegate: new SliverChildBuilderDelegate(
                 (context, int index) => new CourseBox(courses[index]),
@@ -24,7 +24,7 @@ class HomePageBody extends StatelessWidget {
             ),
             new SliverGrid(
               gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200.0,
+                maxCrossAxisExtent: 300.0,
               ),
               delegate: new SliverChildBuilderDelegate(
                 (context, int index) => new BJCCourseBox(bjccourses[index]),

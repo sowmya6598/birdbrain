@@ -27,11 +27,11 @@ List<Course> courses = [
       name: "Chemistry",
       image: "assets/picture.png"
   ),
-  const Course(
-      id: "bgcse_combinedscience",
-      name: "Combined Sciences",
-      image: "assets/picture.png"
-  ),
+//  const Course(
+//      id: "bgcse_combinedscience",
+//      name: "Combined Sciences",
+//      image: "assets/picture.png"
+//  ),
   const Course(
       id: "bgcse_history",
       name: "History",

@@ -10,45 +10,18 @@ class CourseBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final courseCard = new Container(
-      child: new Container(
-        margin: new EdgeInsets.symmetric(vertical: 16.0),
-        alignment: FractionalOffset.center,
-        child: new Hero(
-          tag: "course-hero-${course.id}",
-          child: new Image(
-            image: new AssetImage(course.image),
-            height: 80.0,
-            width: 80.0,
-          ),
-        ),
-      ),
-      height: 100.0,
-      width: 200.0,
-      decoration: new BoxDecoration(
-        color: new Color(0xFFFFFFFF),
-        shape: BoxShape.rectangle,
-        borderRadius: new BorderRadius.circular(10.0),
-//        boxShadow: <BoxShadow>[
-//          new BoxShadow(
-//            color: Colors.black12,
-//            blurRadius: 1.0,
-//            offset: new Offset(0.0, 1.0),
-//          ),
-//        ],
-      ),
-    );
-
-    final courseTitle = new Column(
+    final courseCard = new Column(
       children: <Widget>[
-        courseCard,
-        new Container(
-          height: 10.0,
+        new Image(
+          image: new AssetImage(course.image),
+          height: 80.0,
+          width: 80.0,
         ),
+        new SizedBox(height: 15.0),
         new Text(
           course.name,
           style: new TextStyle(
+            letterSpacing: 1.0,
             fontWeight: FontWeight.w700,
             fontSize: 15.0,
             color: Color(0xFFE08284),
@@ -76,7 +49,6 @@ class CourseBox extends StatelessWidget {
         child: new Stack(
           children: <Widget>[
             courseCard,
-            courseTitle,
           ],
         ),
       ),

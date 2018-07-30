@@ -172,7 +172,7 @@ class SettingsBody extends StatelessWidget {
         elevation: 0.5,
         child: MaterialButton(
           color: Colors.white,
-          minWidth: 300.0,
+          minWidth: 400.0,
           height: 70.0,
 //          onPressed: () {
 //                  Navigator.of(context).pushNamed(HomePage.tag);
