@@ -13,7 +13,7 @@ class SettingsBody extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Widget header = new Container(
-
+      height: 250.0,
       padding: EdgeInsets.only(top: 15.0, bottom: 30.0),
       decoration: new BoxDecoration(
         borderRadius: new BorderRadius.only(
@@ -29,7 +29,6 @@ class SettingsBody extends StatelessWidget {
             stops: [0.0, 0.6],
             tileMode: TileMode.clamp),
       ),
-      height: 250.0,
       margin: new EdgeInsets.only(bottom: 20.0),
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.end,

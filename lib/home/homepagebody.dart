@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz/home/bjccourses.dart';
 import 'package:quiz/home/bjccoursebox.dart';
@@ -14,8 +15,8 @@ class HomePageBody extends StatelessWidget {
           shrinkWrap: false,
           slivers: <Widget>[
             new SliverGrid(
-              gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 300.0,
+              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
               ),
               delegate: new SliverChildBuilderDelegate(
                 (context, int index) => new CourseBox(courses[index]),
@@ -23,8 +24,8 @@ class HomePageBody extends StatelessWidget {
               ),
             ),
             new SliverGrid(
-              gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 300.0,
+              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
               ),
               delegate: new SliverChildBuilderDelegate(
                 (context, int index) => new BJCCourseBox(bjccourses[index]),

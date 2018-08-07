@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/home/bjccourses.dart';
-import 'package:quiz/home/dialog.dart';
+import 'package:quiz/question/dialog.dart';
 
 class BJCCourseBox extends StatelessWidget {
   final BJCCourse bjccourse;

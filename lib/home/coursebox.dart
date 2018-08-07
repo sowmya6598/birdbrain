@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/home/courses.dart';
-import 'package:quiz/home/dialog.dart';
+import 'package:quiz/question/dialog.dart';
 
 class CourseBox extends StatelessWidget {
   final Course course;
   final bool horizontal;
 
   CourseBox(this.course, {this.horizontal = true});
-
   @override
   Widget build(BuildContext context) {
     final courseCard = new Column(
