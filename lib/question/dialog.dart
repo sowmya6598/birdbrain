@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/settings/aboutus.dart';
+import 'package:quiz/question/normalMode/questionscreen.dart';
 
 class PopUp extends StatelessWidget {
   @override
@@ -17,7 +17,7 @@ class PopUp extends StatelessWidget {
           height: 80.0,
           onPressed: () {
             Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new AboutUs()));
+                new MaterialPageRoute(builder: (context) => new QuestionPage()));
           },
           child: new Text("Normal Mode",
               style: TextStyle(
@@ -63,7 +63,7 @@ class PopUp extends StatelessWidget {
           height: 80.0,
           onPressed: () {
             Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new AboutUs()));
+                new MaterialPageRoute(builder: (context) => new QuestionPage()));
           },
           child: new Text("Fast Money",
               style: TextStyle(
