@@ -12,6 +12,7 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('SUBJECT HERE'),
+        elevation: 0.0,
       ),
       body: Center(
         child: ListView(
@@ -21,15 +22,15 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
               padding: EdgeInsets.only(top: 15.0, bottom: 30.0),
               decoration: new BoxDecoration(
                 borderRadius: new BorderRadius.only(
-                    bottomLeft: const Radius.elliptical(150.0, 35.0),
-                    bottomRight: const Radius.elliptical(150.0, 35.0)),
+                    bottomLeft: const Radius.elliptical(200.0, 35.0),
+                    bottomRight: const Radius.elliptical(200.0, 35.0)),
                 gradient: new LinearGradient(
                     colors: [
                       const Color(0xFFE08284),
                       const Color(0xFFF1BFB9),
                     ],
                     begin: Alignment.topCenter,
-                    end: Alignment.bottomRight,
+                    end: Alignment.bottomCenter,
                     stops: [0.0, 0.6],
                     tileMode: TileMode.clamp),
               ),
