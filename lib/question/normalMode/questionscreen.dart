@@ -37,7 +37,7 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                         stops: [0.0, 0.6],
                         tileMode: TileMode.clamp),
                   ),
-                  child:  Text("QUESTION GOES HERE",
+                  child: Text("QUESTION GOES HERE",
                       softWrap: true,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -49,7 +49,7 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                   children: <Widget>[
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+                          top: 40.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -71,7 +71,7 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                     ),
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+                          top: 10.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -93,7 +93,7 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                     ),
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+                          top: 10.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -115,7 +115,7 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                     ),
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+                          top: 10.0, bottom: 50.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -137,6 +137,33 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                     ),
                   ],
                 ),
+                new Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new RaisedButton(
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text('Next Question'),
+                        color: Color(0xFFE9E9E9),
+                        textColor: Colors.grey,
+                        elevation: 0.0,
+                        onPressed: () {
+                          Null;
+                        },
+                      ),
+                      new RaisedButton(
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text('Submit Answer'),
+                        color: Color(0xFFE08284),
+                        elevation: 5.0,
+                        splashColor: Colors.pinkAccent,
+                        onPressed: () {
+                          Null;
+                        },
+                      ),
+                    ]),
+                new SizedBox(height: 50.0),
               ]),
             ),
           ),

@@ -7,7 +7,7 @@ class PopUp extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget normalmode = new FlatButton(
       padding:
-          EdgeInsets.only(top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+          EdgeInsets.only(top: 50.0, bottom: 16.0, left: 20.0, right: 20.0),
       child: Material(
         borderRadius: BorderRadius.circular(17.0),
         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -31,7 +31,7 @@ class PopUp extends StatelessWidget {
 
     Widget normaltext = new Container(
       padding:
-          EdgeInsets.only(top: 10.0, bottom: 10.0, left: 22.0, right: 20.0),
+          EdgeInsets.only(top: 10.0, bottom: 10.0, left: 30.0, right: 30.0),
       child: new Text(
         "Go through the question bank and answer as many questions as you like",
         style: TextStyle(
@@ -77,7 +77,7 @@ class PopUp extends StatelessWidget {
 
     Widget fasttext = new Container(
       padding:
-          EdgeInsets.only(top: 10.0, bottom: 10.0, left: 22.0, right: 20.0),
+          EdgeInsets.only(top: 10.0, bottom: 10.0, left: 30.0, right: 30.0),
       child: new Text(
         "Race against time and see how many questions you can answer in 20 seconds",
         style: TextStyle(
@@ -94,15 +94,12 @@ class PopUp extends StatelessWidget {
         title: const Text('Pick a Mode'),
         elevation: 0.0,
       ),
-      body: new Card(
-        elevation: 10.0,
-        child: new Center(
+      body: new Center(
           child: new ListView(
             scrollDirection: Axis.vertical,
             children: <Widget>[normalmode, normaltext, or, fastmoney, fasttext],
           ),
         ),
-      ),
     );
   }
 }

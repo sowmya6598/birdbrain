@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/settings/aboutus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsBody extends StatelessWidget {
   final bool horizontal;
   SettingsBody({this.horizontal = true});
 
-
-
   final double barHeight = 80.0;
 
   @override
   Widget build(BuildContext context) {
-
     Widget header = new Container(
       height: 250.0,
       padding: EdgeInsets.only(top: 15.0, bottom: 30.0),
@@ -253,10 +251,7 @@ class SettingsBody extends StatelessWidget {
           color: Colors.white,
           minWidth: 300.0,
           height: 70.0,
-          onPressed: () {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new AboutUs()));
-          },
+          onPressed: () => _launchURL('sowmya6598@gmail.com'),
           child: new Row(
             children: <Widget>[
               new Image(
@@ -297,7 +292,6 @@ class SettingsBody extends StatelessWidget {
         ),
       ),
     );
-
 
     return new Expanded(
       child: new Center(
@@ -345,5 +339,14 @@ class SettingsBody extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _launchURL(String toMailId) async {
+    var url = 'mailto:$toMailId';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

@@ -49,7 +49,7 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                   children: <Widget>[
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+                          top: 40.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -71,7 +71,7 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                     ),
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+                          top: 10.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -93,7 +93,7 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                     ),
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+                          top: 10.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -115,7 +115,7 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                     ),
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 20.0, right: 20.0),
+                          top: 10.0, bottom: 40.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
@@ -137,6 +137,33 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                     ),
                   ],
                 ),
+                new Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new RaisedButton(
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text('Skip Question'),
+                        color: Color(0xFFE08284),
+                        elevation: 5.0,
+                        splashColor: Colors.pinkAccent,
+                        onPressed: () {
+                          Null;
+                        },
+                      ),
+                      new RaisedButton(
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text('Next Question'),
+                        color: Color(0xFFE08284),
+                        elevation: 5.0,
+                        splashColor: Colors.pinkAccent,
+                        onPressed: () {
+                          Null;
+                        },
+                      ),
+                    ]),
+                new SizedBox(height: 50.0),
               ]),
             ),
           ),
