@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class QuestionPage extends StatefulWidget {
+class FastQuestionPage extends StatefulWidget {
   @override
-  _QuestionPageWidgetState createState() => _QuestionPageWidgetState();
+  _FastQuestionPageWidgetState createState() => _FastQuestionPageWidgetState();
 }
 
-class _QuestionPageWidgetState extends State<QuestionPage> {
+class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

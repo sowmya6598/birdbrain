@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/question/fastMoney/questionpage.dart';
 import 'package:quiz/question/normalMode/questionscreen.dart';
 
 class PopUp extends StatelessWidget {
@@ -63,7 +64,7 @@ class PopUp extends StatelessWidget {
           height: 80.0,
           onPressed: () {
             Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new QuestionPage()));
+                new MaterialPageRoute(builder: (context) => new FastQuestionPage()));
           },
           child: new Text("Fast Money",
               style: TextStyle(
@@ -91,6 +92,7 @@ class PopUp extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Pick a Mode'),
+        elevation: 0.0,
       ),
       body: new Card(
         elevation: 10.0,
