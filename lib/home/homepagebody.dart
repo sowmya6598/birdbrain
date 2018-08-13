@@ -14,6 +14,16 @@ class HomePageBody extends StatelessWidget {
           scrollDirection: Axis.vertical,
           shrinkWrap: false,
           slivers: <Widget>[
+            new SliverAppBar(
+              leading: new Container(),
+              pinned: true,
+              centerTitle: true,
+              title: new Text("Bird Brain",
+                  style: TextStyle(
+                      color: Color(0xFFFFFFFF),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 30.0)),
+            ),
             new SliverGrid(
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

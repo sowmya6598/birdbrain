@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/question/dialog.dart';
 
 class QuestionPage extends StatefulWidget {
   @override
@@ -115,7 +116,7 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                     ),
                     new FlatButton(
                       padding: EdgeInsets.only(
-                          top: 10.0, bottom: 50.0, left: 20.0, right: 20.0),
+                          top: 10.0, bottom: 40.0, left: 20.0, right: 20.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),

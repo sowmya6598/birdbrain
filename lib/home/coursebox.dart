@@ -23,7 +23,7 @@ class CourseBox extends StatelessWidget {
             letterSpacing: 1.0,
             fontWeight: FontWeight.w700,
             fontSize: 15.0,
-            color: Color(0xFFE08284),
+            color: Colors.black54,
           ),
         ),
       ],

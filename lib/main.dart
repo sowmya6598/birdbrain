@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quiz/home/appbar.dart';
 import 'package:quiz/home/homepagebody.dart';
 import 'package:quiz/settings/settingsbody.dart';
 import 'login.dart';
@@ -10,7 +9,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -93,37 +91,27 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Column(
-        children: <Widget>[new GradientAppBar(), new HomePageBody()],
+        children: <Widget>[new HomePageBody()],
       ),
     );
   }
 }
 
-
-
-class Settings extends StatefulWidget{
+class Settings extends StatefulWidget {
   @override
   _SettingsState createState() => _SettingsState();
 }
 
 class _SettingsState extends State<Settings> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
+    return Scaffold(
       body: new Column(
         children: <Widget>[new SettingsBody()],
       ),
     );
   }
 }
-
-
-
-
-
-
-
 
 class More extends StatefulWidget {
   @override

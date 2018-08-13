@@ -155,9 +155,9 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                       new RaisedButton(
                         padding: const EdgeInsets.all(10.0),
                         child: const Text('Next Question'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                        splashColor: Colors.pinkAccent,
+                        color: Color(0xFFE9E9E9),
+                        textColor: Colors.grey,
+                        elevation: 0.0,
                         onPressed: () {
                           Null;
                         },
