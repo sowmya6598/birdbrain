@@ -150,7 +150,8 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                         textColor: Colors.grey,
                         elevation: 0.0,
                         onPressed: () {
-                          Null;
+                          Navigator.of(context).push(
+                              new MaterialPageRoute(builder: (context) => new QuestionPage()));
                         },
                       ),
                       new RaisedButton(
