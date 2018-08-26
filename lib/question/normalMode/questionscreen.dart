@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/question/dialog.dart';
 
 class QuestionPage extends StatefulWidget {
   @override
@@ -7,8 +6,34 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageWidgetState extends State<QuestionPage> {
+
+  int submit = 0;
+
   @override
   Widget build(BuildContext context) {
+
+    Widget nextQuestion = new RaisedButton(
+      padding: const EdgeInsets.all(10.0),
+      child: const Text('Next Question'),
+      color: submit == 0 ? Color(0xFFE9E9E9) : Color(0xFFE08284),
+      elevation: submit == 0? 0.0 : 5.0,
+      onPressed: () {
+        submit = 0;
+      },
+    );
+
+    Widget submitAnswer = new RaisedButton(
+      padding: const EdgeInsets.all(10.0),
+      child: const Text('Submit Answer'),
+      color: submit == 0? Color(0xFFE08284) : Color(0xFFE9E9E9),
+      elevation: submit == 0? 5.0: 0.0,
+      onPressed: () {
+        setState(() {
+          submit = 1;
+        });
+      },
+    );
+
     return Scaffold(
       body: new CustomScrollView(
         slivers: <Widget>[
@@ -142,30 +167,13 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new RaisedButton(
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Next Question'),
-                        color: Color(0xFFE9E9E9),
-                        textColor: Colors.grey,
-                        elevation: 0.0,
-                        onPressed: () {
-                          Navigator.of(context).push(
-                              new MaterialPageRoute(builder: (context) => new QuestionPage()));
-                        },
-                      ),
-                      new RaisedButton(
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Submit Answer'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                        splashColor: Colors.pinkAccent,
-                        onPressed: () {
-                          Null;
-                        },
-                      ),
-                    ]),
+                    children: <Widget>[nextQuestion, submitAnswer]),
                 new SizedBox(height: 50.0),
+                submit == 1 ? new Container(
+                  height: 250.0,
+                  color: Color(0xFFF1BFB9),
+                ) : new Container()
+//                new Container(_answerBox),
               ]),
             ),
           ),
