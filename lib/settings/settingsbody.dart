@@ -279,7 +279,7 @@ class SettingsBody extends StatelessWidget {
                   color: Colors.white,
                   minWidth: 300.0,
                   height: 70.0,
-                  onPressed: () => _launchURL('sowmya6598@gmail.com'),
+                  onPressed: () => _launchURL('birdbrainbs@gmail.com'),
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[

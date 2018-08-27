@@ -6,18 +6,18 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageWidgetState extends State<QuestionPage> {
-
   int submit = 0;
 
   @override
   Widget build(BuildContext context) {
-
     Widget nextQuestion = new RaisedButton(
       padding: const EdgeInsets.all(10.0),
       child: const Text('Next Question'),
       color: submit == 0 ? Color(0xFFE9E9E9) : Color(0xFFE08284),
-      elevation: submit == 0? 0.0 : 5.0,
+      elevation: submit == 0 ? 0.0 : 5.0,
       onPressed: () {
+        Navigator.of(context).push(
+            new MaterialPageRoute(builder: (context) => new QuestionPage()));
         submit = 0;
       },
     );
@@ -25,8 +25,8 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
     Widget submitAnswer = new RaisedButton(
       padding: const EdgeInsets.all(10.0),
       child: const Text('Submit Answer'),
-      color: submit == 0? Color(0xFFE08284) : Color(0xFFE9E9E9),
-      elevation: submit == 0? 5.0: 0.0,
+      color: submit == 0 ? Color(0xFFE08284) : Color(0xFFE9E9E9),
+      elevation: submit == 0 ? 5.0 : 0.0,
       onPressed: () {
         setState(() {
           submit = 1;
@@ -169,11 +169,40 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[nextQuestion, submitAnswer]),
                 new SizedBox(height: 50.0),
-                submit == 1 ? new Container(
-                  height: 250.0,
-                  color: Color(0xFFF1BFB9),
-                ) : new Container()
-//                new Container(_answerBox),
+                submit == 1
+                    ? new Container(
+                        height: 150.0,
+                        color: Color(0xFFF1BFB9),
+                        child: new Column(
+                          children: <Widget>[
+                            new SizedBox(height: 20.0),
+                            new Text("Your Result",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20.0)),
+                            new SizedBox(height: 5.0),
+                            new Text("Incorrect",
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 17.0)),
+                            new SizedBox(height: 20.0),
+                            new Text("Your Pace",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20.0)),
+                            new SizedBox(height: 5.0),
+                            new Text("2:09",
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 17.0)),
+                          ],
+                        ),
+                      )
+                    : new Container()
               ]),
             ),
           ),
@@ -182,3 +211,20 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
     );
   }
 }
+
+
+
+
+
+//height: 300.0, child: Column(children: <Widget>[
+//new SizedBox(height: 40.0),
+//new Text("Explanation",style: TextStyle(
+//color: Color(0xFFE08284),
+//fontWeight: FontWeight.w600,
+//fontSize: 25.0)),
+//new SizedBox(height: 20.0),
+//new Text("The heart is located at the center of the chest. Here, there is more information.",style: TextStyle(
+//color: Color(0xFFE08284),
+//fontWeight: FontWeight.w300,
+//fontSize: 17.0))
+//])
