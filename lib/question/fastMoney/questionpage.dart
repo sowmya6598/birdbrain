@@ -6,8 +6,21 @@ class FastQuestionPage extends StatefulWidget {
 }
 
 class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
+  int fastChosenAnswer;
   @override
   Widget build(BuildContext context) {
+    Widget nextQuestion = new RaisedButton(
+      padding: const EdgeInsets.all(10.0),
+      textColor: Colors.black,
+      child: const Text('Next Question'),
+      color: Color(0xFFE08284),
+      elevation: 5.0,
+      onPressed: () {
+        Navigator.of(context).push(new MaterialPageRoute(
+            builder: (context) => new FastQuestionPage()));
+      },
+    );
+
     return Scaffold(
       body: new CustomScrollView(
         slivers: <Widget>[
@@ -15,6 +28,10 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
             centerTitle: true,
             title: const Text('SUBJECT HERE'),
             elevation: 0.0,
+            leading: new IconButton(
+                icon: new Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: () =>
+                    Navigator.popUntil(context, ModalRoute.withName('/'))),
           ),
           new SliverPadding(
             padding: new EdgeInsets.all(0.0),
@@ -37,7 +54,7 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                         stops: [0.0, 0.6],
                         tileMode: TileMode.clamp),
                   ),
-                  child:  Text("QUESTION GOES HERE",
+                  child: Text("QUESTION GOES HERE",
                       softWrap: true,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -53,13 +70,15 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
-                        elevation: 0.5,
+                        elevation: fastChosenAnswer == 1? 0.0: 1.0,
                         child: MaterialButton(
-                          color: Colors.white,
+                          color: fastChosenAnswer == 1? Color(0xFFF1BFB9) : Colors.white,
                           minWidth: 300.0,
                           height: 70.0,
                           onPressed: () {
-//                  Navigator.of(context).pushNamed(HomePage.tag);
+                            setState(() {
+                              fastChosenAnswer = 1;
+                            });
                           },
                           child: new Text("Answer 1",
                               style: TextStyle(
@@ -75,13 +94,15 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
-                        elevation: 0.5,
+                        elevation: fastChosenAnswer == 2? 0.0: 1.0,
                         child: MaterialButton(
-                          color: Colors.white,
+                          color: fastChosenAnswer == 2? Color(0xFFF1BFB9) : Colors.white,
                           minWidth: 300.0,
                           height: 70.0,
                           onPressed: () {
-//                  Navigator.of(context).pushNamed(HomePage.tag);
+                            setState(() {
+                              fastChosenAnswer = 2;
+                            });
                           },
                           child: new Text("Answer 2",
                               style: TextStyle(
@@ -97,13 +118,15 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
-                        elevation: 0.5,
+                        elevation: fastChosenAnswer == 3? 0.0: 1.0,
                         child: MaterialButton(
-                          color: Colors.white,
+                          color: fastChosenAnswer == 3? Color(0xFFF1BFB9) : Colors.white,
                           minWidth: 300.0,
                           height: 70.0,
                           onPressed: () {
-//                  Navigator.of(context).pushNamed(HomePage.tag);
+                            setState(() {
+                              fastChosenAnswer = 3;
+                            });
                           },
                           child: new Text("Answer 3",
                               style: TextStyle(
@@ -119,13 +142,15 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
-                        elevation: 0.5,
+                        elevation: fastChosenAnswer == 4? 0.0: 1.0,
                         child: MaterialButton(
-                          color: Colors.white,
+                          color: fastChosenAnswer == 4? Color(0xFFF1BFB9) : Colors.white,
                           minWidth: 300.0,
                           height: 70.0,
                           onPressed: () {
-//                  Navigator.of(context).pushNamed(HomePage.tag);
+                            setState(() {
+                              fastChosenAnswer = 4;
+                            });
                           },
                           child: new Text("Answer 4",
                               style: TextStyle(
@@ -135,35 +160,10 @@ class _FastQuestionPageWidgetState extends State<FastQuestionPage> {
                         ),
                       ),
                     ),
+                    nextQuestion,
+                    new SizedBox(height: 50.0),
                   ],
                 ),
-                new Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new RaisedButton(
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Skip Question'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                        splashColor: Colors.pinkAccent,
-                        onPressed: () {
-                          Null;
-                        },
-                      ),
-                      new RaisedButton(
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Next Question'),
-                        color: Color(0xFFE9E9E9),
-                        textColor: Colors.grey,
-                        elevation: 0.0,
-                        onPressed: () {
-                          Null;
-                        },
-                      ),
-                    ]),
-                new SizedBox(height: 50.0),
               ]),
             ),
           ),

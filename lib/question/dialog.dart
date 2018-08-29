@@ -17,8 +17,8 @@ class PopUp extends StatelessWidget {
           minWidth: 300.0,
           height: 80.0,
           onPressed: () {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new QuestionPage()));
+            Navigator.of(context).push(new MaterialPageRoute(
+                builder: (context) => new QuestionPage()));
           },
           child: new Text("Normal Mode",
               style: TextStyle(
@@ -31,13 +31,13 @@ class PopUp extends StatelessWidget {
 
     Widget normaltext = new Container(
       padding:
-          EdgeInsets.only(top: 10.0, bottom: 10.0, left: 30.0, right: 30.0),
+          EdgeInsets.only(top: 10.0, bottom: 10.0, left: 40.0, right: 40.0),
       child: new Text(
         "Go through the question bank and answer as many questions as you like",
         style: TextStyle(
             letterSpacing: 1.0,
             color: Colors.black54,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             fontSize: 15.0),
       ),
     );
@@ -63,8 +63,8 @@ class PopUp extends StatelessWidget {
           minWidth: 300.0,
           height: 80.0,
           onPressed: () {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new FastQuestionPage()));
+            Navigator.of(context).push(new MaterialPageRoute(
+                builder: (context) => new FastQuestionPage()));
           },
           child: new Text("Fast Money",
               style: TextStyle(
@@ -77,13 +77,13 @@ class PopUp extends StatelessWidget {
 
     Widget fasttext = new Container(
       padding:
-          EdgeInsets.only(top: 10.0, bottom: 10.0, left: 30.0, right: 30.0),
+          EdgeInsets.only(top: 10.0, bottom: 10.0, left: 40.0, right: 40.0),
       child: new Text(
         "Race against time and see how many questions you can answer in 20 seconds",
         style: TextStyle(
             letterSpacing: 1.0,
             color: Colors.black54,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             fontSize: 15.0),
       ),
     );
@@ -94,12 +94,13 @@ class PopUp extends StatelessWidget {
         title: const Text('Pick a Mode'),
         elevation: 0.0,
       ),
-      body: new Center(
-          child: new ListView(
-            scrollDirection: Axis.vertical,
-            children: <Widget>[normalmode, normaltext, or, fastmoney, fasttext],
-          ),
+      body: new Container(
+        alignment: FractionalOffset.center,
+        child: new ListView(
+          scrollDirection: Axis.vertical,
+          children: <Widget>[normalmode, normaltext, or, fastmoney, fasttext],
         ),
+      ),
     );
   }
 }

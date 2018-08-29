@@ -7,11 +7,13 @@ class QuestionPage extends StatefulWidget {
 
 class _QuestionPageWidgetState extends State<QuestionPage> {
   int submit = 0;
+  int chosenAnswer;
 
   @override
   Widget build(BuildContext context) {
     Widget nextQuestion = new RaisedButton(
       padding: const EdgeInsets.all(10.0),
+      textColor: submit == 0 ? Colors.black12 : Colors.black,
       child: const Text('Next Question'),
       color: submit == 0 ? Color(0xFFE9E9E9) : Color(0xFFE08284),
       elevation: submit == 0 ? 0.0 : 5.0,
@@ -24,6 +26,7 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
 
     Widget submitAnswer = new RaisedButton(
       padding: const EdgeInsets.all(10.0),
+      textColor: submit == 0 ? Colors.black : Colors.black12,
       child: const Text('Submit Answer'),
       color: submit == 0 ? Color(0xFFE08284) : Color(0xFFE9E9E9),
       elevation: submit == 0 ? 5.0 : 0.0,
@@ -41,6 +44,10 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
             centerTitle: true,
             title: const Text('SUBJECT HERE'),
             elevation: 0.0,
+            leading: new IconButton(
+              icon: new Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/'))
+            ),
           ),
           new SliverPadding(
             padding: new EdgeInsets.all(0.0),
@@ -79,13 +86,15 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
-                        elevation: 0.5,
+                        elevation: chosenAnswer == 1? 0.0: 1.0,
                         child: MaterialButton(
-                          color: Colors.white,
+                          color: chosenAnswer == 1? Color(0xFFF1BFB9) : Colors.white,
                           minWidth: 300.0,
                           height: 70.0,
                           onPressed: () {
-//                  Navigator.of(context).pushNamed(HomePage.tag);
+                            setState(() {
+                              chosenAnswer = 1;
+                            });
                           },
                           child: new Text("Answer 1",
                               style: TextStyle(
@@ -101,13 +110,15 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
-                        elevation: 0.5,
+                        elevation: chosenAnswer == 2? 0.0: 1.0,
                         child: MaterialButton(
-                          color: Colors.white,
+                          color: chosenAnswer == 2? Color(0xFFF1BFB9) : Colors.white,
                           minWidth: 300.0,
                           height: 70.0,
                           onPressed: () {
-//                  Navigator.of(context).pushNamed(HomePage.tag);
+                            setState(() {
+                              chosenAnswer = 2;
+                            });
                           },
                           child: new Text("Answer 2",
                               style: TextStyle(
@@ -123,13 +134,15 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
-                        elevation: 0.5,
+                        elevation: chosenAnswer == 3? 0.0: 1.0,
                         child: MaterialButton(
-                          color: Colors.white,
+                          color: chosenAnswer == 3? Color(0xFFF1BFB9) : Colors.white,
                           minWidth: 300.0,
                           height: 70.0,
                           onPressed: () {
-//                  Navigator.of(context).pushNamed(HomePage.tag);
+                            setState(() {
+                              chosenAnswer = 3;
+                            });
                           },
                           child: new Text("Answer 3",
                               style: TextStyle(
@@ -145,13 +158,15 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(17.0),
                         shadowColor: Color.fromRGBO(50, 50, 50, 0.2),
-                        elevation: 0.5,
+                        elevation: chosenAnswer == 4? 0.0: 1.0,
                         child: MaterialButton(
-                          color: Colors.white,
+                          color: chosenAnswer == 4? Color(0xFFF1BFB9) : Colors.white,
                           minWidth: 300.0,
                           height: 70.0,
                           onPressed: () {
-//                  Navigator.of(context).pushNamed(HomePage.tag);
+                            setState(() {
+                              chosenAnswer = 4;
+                            });
                           },
                           child: new Text("Answer 4",
                               style: TextStyle(
@@ -170,38 +185,71 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
                     children: <Widget>[nextQuestion, submitAnswer]),
                 new SizedBox(height: 50.0),
                 submit == 1
-                    ? new Container(
-                        height: 150.0,
-                        color: Color(0xFFF1BFB9),
-                        child: new Column(
-                          children: <Widget>[
-                            new SizedBox(height: 20.0),
-                            new Text("Your Result",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 20.0)),
-                            new SizedBox(height: 5.0),
-                            new Text("Incorrect",
-                                style: TextStyle(
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 17.0)),
-                            new SizedBox(height: 20.0),
-                            new Text("Your Pace",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 20.0)),
-                            new SizedBox(height: 5.0),
-                            new Text("2:09",
-                                style: TextStyle(
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 17.0)),
-                          ],
+                    ? new Column(children: <Widget>[
+                        new Container(
+                          padding:
+                              const EdgeInsets.only(top: 20.0, bottom: 20.0),
+                          color: Color(0xFFF1BFB9),
+                          child: new Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              new Text("Your Result",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 20.0)),
+                              new SizedBox(height: 5.0),
+                              new Text("Incorrect",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 17.0)),
+                              new SizedBox(height: 20.0),
+                              new Text("Your Pace",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 20.0)),
+                              new SizedBox(height: 5.0),
+                              new Text("2:09",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 17.0)),
+                            ],
+                          ),
                         ),
-                      )
+                        new Container(
+                            padding: const EdgeInsets.only(
+                                top: 40.0,
+                                bottom: 40.0,
+                                left: 30.0,
+                                right: 30.0),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  new Text("Explanation",
+                                      style: TextStyle(
+                                          color: Color(0xFFE08284),
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 25.0)),
+                                  new SizedBox(height: 20.0),
+                                  new Text(
+                                      "The heart is located at the center of the chest. Here, there is more information.",
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          color: Color(0xFFE08284),
+                                          letterSpacing: 0.3,
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 17.0)),
+                                ]))
+                      ])
                     : new Container()
               ]),
             ),
@@ -211,20 +259,3 @@ class _QuestionPageWidgetState extends State<QuestionPage> {
     );
   }
 }
-
-
-
-
-
-//height: 300.0, child: Column(children: <Widget>[
-//new SizedBox(height: 40.0),
-//new Text("Explanation",style: TextStyle(
-//color: Color(0xFFE08284),
-//fontWeight: FontWeight.w600,
-//fontSize: 25.0)),
-//new SizedBox(height: 20.0),
-//new Text("The heart is located at the center of the chest. Here, there is more information.",style: TextStyle(
-//color: Color(0xFFE08284),
-//fontWeight: FontWeight.w300,
-//fontSize: 17.0))
-//])
