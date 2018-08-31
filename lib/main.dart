@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quiz/home/homepagebody.dart';
+import 'package:quiz/more/more.dart';
 import 'package:quiz/settings/settingsbody.dart';
 import 'login.dart';
 
@@ -121,9 +122,10 @@ class More extends StatefulWidget {
 class MoreState extends State<More> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 300.0,
-      color: Colors.green,
+    return Scaffold(
+      body: new Column(
+        children: <Widget>[new MoreBody()],
+      ),
     );
   }
 }
