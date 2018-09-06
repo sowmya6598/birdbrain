@@ -10,8 +10,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-
-
     final logo = Hero(
       tag: 'hero',
       child: CircleAvatar(
@@ -91,16 +89,13 @@ class _LoginPageState extends State<LoginPage> {
 //      splashColor: Colors.blue,
 //      onPressed: () {},
 //    );
-//
-//    Widget google = new MaterialButton(
-//      height: 10.0,
-//      minWidth: 10.0,
-//      child: const Text('Connect with Google'),
-//      color: Theme.of(context).accentColor,
-//      elevation: 4.0,
-//      splashColor: Colors.blue,
-//      onPressed: () {},
-//    );
+
+    Widget google = new IconButton(
+      iconSize: 70.0,
+      icon: new Image.asset('assets/google.png'),
+      splashColor: Colors.white,
+      onPressed: () {},
+    );
 
     Widget buildButton(IconData icon) {
       final Color tintColor = Color.fromRGBO(224, 130, 132, 1.0);
@@ -115,16 +110,12 @@ class _LoginPageState extends State<LoginPage> {
 //          )
         ],
       );
-
     }
 
     Widget googlefacebook = new Container(
       child: new Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget> [
-          buildButton(Icons.favorite),
-          buildButton(Icons.favorite_border)
-        ],
+        children: <Widget>[buildButton(Icons.favorite), google],
       ),
     );
 
@@ -133,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
         'Don\'t have an account?  Sign Up',
         style: TextStyle(color: Colors.black54),
       ),
-      padding: EdgeInsets.only(top: 20.0),
+      padding: EdgeInsets.only(top: 10.0),
       onPressed: () {},
     );
 
@@ -156,7 +147,6 @@ class _LoginPageState extends State<LoginPage> {
             or,
             SizedBox(height: 5.0),
             googlefacebook,
-            SizedBox(height: 20.0),
             register
           ],
         ),
